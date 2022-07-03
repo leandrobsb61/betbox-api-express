@@ -1,0 +1,19 @@
+{
+  "name": "betbox-api-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leandrobsb61/betbox-api-express.git"
+  },
+  "author": "leandrobsb61",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leandrobsb61/betbox-api-express/issues"
+  },
+  "homepage": "https://github.com/leandrobsb61/betbox-api-express#readme"
+}
