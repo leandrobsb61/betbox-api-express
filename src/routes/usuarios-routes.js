@@ -1,9 +1,10 @@
 import express from 'express';
-import LivrosController from '../controllers/usuarios-controller.js';
+import UsuariosController from '../controllers/usuarios-controller.js';
 
 const usuariosRoutes = express.Router();
 
 usuariosRoutes
-    .get('/usuarios', LivrosController.buscarUsuarios);
+    .get('/usuarios', UsuariosController.buscarUsuarios)
+    .post('/usuarios', UsuariosController.cadastrarUsuario);
 
 export default usuariosRoutes;
