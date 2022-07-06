@@ -1,4 +1,5 @@
 import express from 'express';
+import loginRoutes from './login-routes.js';
 import usuariosRoutes from './usuarios-routes.js';
 
 const indexRoutes = (app) => {
@@ -8,7 +9,8 @@ const indexRoutes = (app) => {
 
     app.use(
         express.json(),
-        usuariosRoutes
+        loginRoutes,
+        usuariosRoutes,
     );
 }
 
