@@ -1,6 +1,6 @@
 import express from 'express';
 import db from './config/db-connect.js';
-import usuariosCollection from './collections/usuario.js';
+import indexRoutes from './routes/index-routes.js';
 
 // Escutando evento de possível erro
 db.on('error', console.log.bind(console, 'Erro de conexão'));
@@ -12,13 +12,6 @@ db.once('open', () => {
 
 const app = express();
 
-app.use(express.json());
-
-// configurando rotas com express
-app.get('/usuarios', (req, res) => {
-    usuariosCollection.find((error, usuarios) => {
-        res.status(200).json(usuarios);
-    });
-});
+indexRoutes(app);
 
 export default app;
