@@ -12,7 +12,7 @@ export default class BancaController {
                 return res.status(500).send({ message: `${error.message} - falha ao listar bancas` });
             }
             res.status(200).send(bancas);
-        })
+        });
     }
 
     static cadastrarBanca = (req, res) => {
