@@ -8,7 +8,7 @@ const bancasSchema = new mongoose.Schema(
         saldoBanca: { type: String },
         selecionada: { type: Boolean },
         idUsuario: { type: String, required: true },
-        usuarioRef: { type: mongoose.Schema.Types.ObjectId, ref: 'usuarios', required: true }
+        usuarioRef: { type: mongoose.Schema.Types.ObjectId, ref: 'usuarios' }
     }
 );
 

@@ -38,6 +38,7 @@ export default class BancaController {
                 if (!bancas || !bancas.length) {
                     const novaBanca = new bancasCollection(req.body);
                     novaBanca.selecionada = true;
+                    novaBanca.usuarioRef = req.body.idUsuario;
                     novaBanca.save((error) => {
                         if (error) {
                             res.status(500).send({ message: `${error.message} - falha ao cadastrar banca` })
