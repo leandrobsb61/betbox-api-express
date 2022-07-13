@@ -76,7 +76,7 @@ export default class BancaController {
     static alterarBancaSelecionada = (req, res) => {
 
         bancasCollection.updateMany({}, { $set: { selecionada: false } }, { multi: true }, () => {
-            bancasCollection.findByIdAndUpdate(req.query.id, { selecionada: true }, (error) => {
+            bancasCollection.findByIdAndUpdate(req.body.id, { selecionada: true }, (error) => {
                 if (error) {
                     res.status(500).send({ message: `${error.message} - falha ao selecionar banca` });
                 } else {
