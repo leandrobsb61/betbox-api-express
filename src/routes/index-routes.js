@@ -3,6 +3,7 @@ import cors from 'cors';
 import loginRoutes from './login-routes.js';
 import usuariosRoutes from './usuarios-routes.js';
 import bancasRoutes from './bancas-routes.js';
+import apostasRoutes from './apostas-routes.js';
 
 const indexRoutes = (app) => {
     app.route('/').get((req, res) => {
@@ -15,6 +16,7 @@ const indexRoutes = (app) => {
         loginRoutes,
         usuariosRoutes,
         bancasRoutes,
+        apostasRoutes
     );
 }
 
