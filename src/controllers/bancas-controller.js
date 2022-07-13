@@ -72,4 +72,17 @@ export default class BancaController {
             });
         });
     }
+
+    static alterarBancaSelecionada = (req, res) => {
+
+        bancasCollection.updateMany({}, { $set: { selecionada: false } }, { multi: true }, () => {
+            bancasCollection.findByIdAndUpdate(req.query.id, { selecionada: true }, (error) => {
+                if (error) {
+                    res.status(500).send({ message: `${error.message} - falha ao selecionar banca` });
+                } else {
+                    res.status(200).send();
+                }
+            });
+        });
+    }
 }

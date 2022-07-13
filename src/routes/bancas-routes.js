@@ -5,6 +5,7 @@ const bancasRoutes = express.Router();
 
 bancasRoutes
     .get('/bancas/usuario', BancaController.listarBancasPorUsuario)
-    .post('/bancas', BancaController.cadastrarBanca);
+    .post('/bancas', BancaController.cadastrarBanca)
+    .put('/bancas/selecionar', BancaController.alterarBancaSelecionada);
 
 export default bancasRoutes;
