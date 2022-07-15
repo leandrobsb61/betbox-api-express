@@ -7,7 +7,7 @@ const bancasSchema = new mongoose.Schema(
         nomeBanca: { type: String, required: true },
         usuarioRef: { type: mongoose.Schema.Types.ObjectId, ref: 'usuarios' },
         descricaoBanca: { type: String },
-        saldoBanca: { type: String },
+        saldoBanca: { type: Number },
         selecionada: { type: Boolean },
     }
 );
