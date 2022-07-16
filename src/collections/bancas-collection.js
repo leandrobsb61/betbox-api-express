@@ -6,7 +6,6 @@ const bancasSchema = new mongoose.Schema(
         idUsuario: { type: String, required: true },
         nomeBanca: { type: String, required: true },
         usuarioRef: { type: mongoose.Schema.Types.ObjectId, ref: 'usuarios' },
-        descricaoBanca: { type: String },
         saldoBanca: { type: Number },
         selecionada: { type: Boolean },
     }
