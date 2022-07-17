@@ -23,6 +23,7 @@ export default class UsuariosController {
 
                 if (!usuarioExistente) {
                     let novoUsuario = new usuariosCollection(req.body);
+                    novoUsuario.dataCriacao = new Date().getTime();
                     novoUsuario.save((error) => {
                         if (error) {
                             res.status(500).send({ message: `${error.message} - falha ao cadastrar usuário.` })

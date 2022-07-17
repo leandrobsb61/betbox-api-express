@@ -5,7 +5,8 @@ const usuarioSchema = new mongoose.Schema(
         id: { type: String },
         nomeUsuario: { type: String, required: true },
         emailUsuario: { type: String, required: true },
-        senhaUsuario: { type: String, required: true }
+        senhaUsuario: { type: String, required: true },
+        dataCriacao: { type: String }
     }
 );
 
