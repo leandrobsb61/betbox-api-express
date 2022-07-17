@@ -8,6 +8,7 @@ const bancasSchema = new mongoose.Schema(
         usuarioRef: { type: mongoose.Schema.Types.ObjectId, ref: 'usuarios' },
         saldoBanca: { type: Number },
         selecionada: { type: Boolean },
+        dataInicial: { type: String }
     }
 );
 
