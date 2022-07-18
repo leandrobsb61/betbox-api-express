@@ -11,8 +11,7 @@ const apostasSchema = new mongoose.Schema(
         mercado: { type: String, required: true },
         valorAposta: { type: Number, required: true },
         odd: { type: Number, required: true },
-        pendente: { type: Boolean, required: true },
-        resultado: { type: Number, required: true },
+        resultado: { type: Number },
         observacao: { type: String },
         bancaRef: { type: mongoose.Schema.Types.ObjectId, ref: 'bancas' },
     }
