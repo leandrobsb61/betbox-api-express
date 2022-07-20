@@ -40,6 +40,7 @@ export default class BancaController {
                     novaBanca.selecionada = true;
                     novaBanca.dataInicial = new Date().getTime();
                     novaBanca.usuarioRef = req.body.idUsuario;
+                    novaBanca.mercados = [];
                     novaBanca.save((error) => {
                         if (error) {
                             res.status(500).send({ message: `${error.message} - falha ao cadastrar banca` })
@@ -60,6 +61,7 @@ export default class BancaController {
                             novaBanca.selecionada = true;
                             novaBanca.dataInicial = new Date().getTime();
                             novaBanca.usuarioRef = req.body.idUsuario;
+                            novaBanca.mercados = [];
                             novaBanca.save((error) => {
                                 if (error) {
                                     res.status(500).send({ message: `${error.message} - falha ao cadastrar banca` });
@@ -86,6 +88,50 @@ export default class BancaController {
                     res.status(200).send();
                 }
             });
+        });
+    }
+
+    static cadastrarMercadoEmBanca = (req, res) => {
+
+        bancasCollection.findById(req.body.id, (error, banca) => {
+            if (error) {
+                res.status(500).send({ message: `${error.message} - falha ao selecionar banca` });
+            } else {
+                if (banca.mercados.includes(req.body.mercado)) {
+                    return res.status(422).send({ message: `Mercado já cadastrado para essa banca` });
+                }
+                const mercados = banca.mercados;
+                mercados.push(req.body.mercado);
+                bancasCollection.findByIdAndUpdate(req.body.id, { mercados }, (error) => {
+                    if (error) {
+                        res.status(500).send({ message: `${error.message} - falha ao cadastrar mercado` });
+                    } else {
+                        res.status(200).send({message: `Mercado incluído com sucesso`, mercados});
+                    }
+                });
+            }
+        });
+    }
+
+    static removerMercadoEmBanca = (req, res) => {
+
+        bancasCollection.findById(req.body.id, (error, banca) => {
+            if (error) {
+                res.status(500).send({ message: `${error.message} - falha ao selecionar banca` });
+            } else {
+                if (!banca.mercados.includes(req.body.mercado)) {
+                    return res.status(422).send({ message: `Mercado não encontrado` });
+                }
+                const mercados = banca.mercados;
+                mercados.splice(req.body.mercado, 1);
+                bancasCollection.findByIdAndUpdate(req.body.id, { mercados }, (error) => {
+                    if (error) {
+                        res.status(500).send({ message: `${error.message} - falha ao excluir mercado` });
+                    } else {
+                        res.status(200).send({message: `Mercado excluído com sucesso`, mercados});
+                    }
+                });
+            }
         });
     }
 }
