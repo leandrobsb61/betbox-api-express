@@ -25,4 +25,15 @@ export default class ApostasController {
         });
     }
 
+    static removerAposta = (req, res) => {
+        const id = req.params.id;
+        apostasCollection.findByIdAndDelete(id, (err) => {
+            if (err) {
+                res.status(400).send({ message: `${err.message} - aposta não encontrada` });
+            } else {
+                res.status(200).send({ message: `Aposta excluída com sucesso` });
+            }
+        });
+    }
+
 }
