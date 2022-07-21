@@ -40,10 +40,11 @@ export default class BancaController {
                     novaBanca.selecionada = true;
                     novaBanca.dataInicial = new Date().getTime();
                     novaBanca.usuarioRef = req.body.idUsuario;
+                    novaBanca.saldoBanca = (req.body.saldoBanca) ? req.body.saldoBanca : 0;
                     novaBanca.mercados = [];
                     novaBanca.save((error) => {
                         if (error) {
-                            res.status(500).send({ message: `${error.message} - falha ao cadastrar banca` })
+                            res.status(500).send({ message: `${error.message} - falha ao cadastrar banca` });
                         } else {
                             res.status(201).send({ message: 'Banca cadastrada' });
                         }
@@ -61,6 +62,7 @@ export default class BancaController {
                             novaBanca.selecionada = true;
                             novaBanca.dataInicial = new Date().getTime();
                             novaBanca.usuarioRef = req.body.idUsuario;
+                            novaBanca.saldoBanca = (req.body.saldoBanca) ? req.body.saldoBanca : 0;
                             novaBanca.mercados = [];
                             novaBanca.save((error) => {
                                 if (error) {
