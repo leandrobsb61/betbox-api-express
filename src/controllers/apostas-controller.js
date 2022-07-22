@@ -1,5 +1,4 @@
 import apostasCollection from "../collections/apostas-collection.js"
-import Aposta from "../models/usuario.js";
 
 export default class ApostasController {
 
